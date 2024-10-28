@@ -16,7 +16,7 @@
         }
 
         /* Главная страница */
-        .main-page, .video-page {
+        .main-page, .video-page, .p2p-page {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -44,13 +44,13 @@
             background-color: #f40612;
         }
 
-        /* Видео страница */
-        .video-page {
+        /* Видео страницы */
+        .video-page, .p2p-page {
             position: relative;
             display: none;
         }
 
-        .video-page iframe {
+        .video-page iframe, .p2p-page iframe {
             width: 100vw;
             height: 100vh;
         }
@@ -79,12 +79,19 @@
     <div class="main-page" id="mainPage">
         <h1>NurCrypto - криптовалюта курсы</h1>
         <button class="button" onclick="showVideo()">Биржаға тіркелу және верификация</button>
+        <button class="button" onclick="showP2P()">P2P</button>
     </div>
 
     <!-- Видео страница -->
     <div class="video-page" id="videoPage">
         <button class="exit-button" onclick="showMainPage()">Шығу</button>
         <iframe src="https://drive.google.com/file/d/18YHOlDM7BvHJahvkonSlCfh6UQ379sZf/preview" frameborder="0" allowfullscreen></iframe> 
+    </div>
+
+    <!-- P2P Видео страница -->
+    <div class="p2p-page" id="p2pPage">
+        <button class="exit-button" onclick="showMainPage()">Шығу</button>
+        <iframe src="https://drive.google.com/file/d/1NCW-U13NIwTUzzikcZnBO-E3mL4KNwfS/preview" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -94,9 +101,16 @@
             document.getElementById('videoPage').style.display = 'flex';
         }
 
+        // Функция для показа страницы с P2P видео
+        function showP2P() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('p2pPage').style.display = 'flex';
+        }
+
         // Функция для возврата на главную страницу
         function showMainPage() {
             document.getElementById('videoPage').style.display = 'none';
+            document.getElementById('p2pPage').style.display = 'none';
             document.getElementById('mainPage').style.display = 'flex';
         }
     </script>
