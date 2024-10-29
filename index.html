@@ -16,7 +16,7 @@
         }
 
         /* Главная страница */
-        .main-page, .video-page, .p2p-page {
+        .main-page, .video-page, .p2p-page, .spot-page {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -45,12 +45,12 @@
         }
 
         /* Видео страницы */
-        .video-page, .p2p-page {
+        .video-page, .p2p-page, .spot-page {
             position: relative;
             display: none;
         }
 
-        .video-page iframe, .p2p-page iframe {
+        .video-page iframe, .p2p-page iframe, .spot-page iframe {
             width: 100vw;
             height: 100vh;
         }
@@ -78,8 +78,14 @@
     <!-- Главная страница -->
     <div class="main-page" id="mainPage">
         <h1>NurCrypto - криптовалюта курсы</h1>
+        <h3>1) Биржаға тіркелу және верификация</h3>
         <button class="button" onclick="showVideo()">Биржаға тіркелу және верификация</button>
-        <button class="button" onclick="showP2P()">P2P</button>
+        <hr color="white" width="100%">
+        <h3>2) P2P саудасы</h3>
+        <button class="button" onclick="showP2P()">P2P саудасы</button>
+        <hr color="white" width="100%">
+        <h3>3) Спот саудасы</h3>
+        <button class="button" onclick="showSpot()">Спот саудасы</button>
     </div>
 
     <!-- Видео страница -->
@@ -92,6 +98,12 @@
     <div class="p2p-page" id="p2pPage">
         <button class="exit-button" onclick="showMainPage()">Шығу</button>
         <iframe src="https://drive.google.com/file/d/1NCW-U13NIwTUzzikcZnBO-E3mL4KNwfS/preview" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Спот Видео страница -->
+    <div class="spot-page" id="spotPage">
+        <button class="exit-button" onclick="showMainPage()">Шығу</button>
+        <iframe src="https://drive.google.com/file/d/1XYZ12345SampleSpotVideo/preview" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -107,10 +119,17 @@
             document.getElementById('p2pPage').style.display = 'flex';
         }
 
+        // Функция для показа страницы с Спот видео
+        function showSpot() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('spotPage').style.display = 'flex';
+        }
+
         // Функция для возврата на главную страницу
         function showMainPage() {
             document.getElementById('videoPage').style.display = 'none';
             document.getElementById('p2pPage').style.display = 'none';
+            document.getElementById('spotPage').style.display = 'none';
             document.getElementById('mainPage').style.display = 'flex';
         }
     </script>
