@@ -16,7 +16,7 @@
         }
 
         /* Главная страница */
-        .main-page, .video-page, .p2p-page, .spot-page {
+        .main-page, .video-page, .p2p-page, .spot-page, .futures-page {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -45,12 +45,12 @@
         }
 
         /* Видео страницы */
-        .video-page, .p2p-page, .spot-page {
+        .video-page, .p2p-page, .spot-page, .futures-page {
             position: relative;
             display: none;
         }
 
-        .video-page iframe, .p2p-page iframe, .spot-page iframe {
+        .video-page iframe, .p2p-page iframe, .spot-page iframe, .futures-page iframe {
             width: 100vw;
             height: 100vh;
         }
@@ -86,6 +86,9 @@
         <hr color="white" width="100%">
         <h3>3) Спот саудасы</h3>
         <button class="button" onclick="showSpot()">Спот саудасы</button>
+        <hr color="white" width="100%">
+        <h3>4) Фьючерс саудасы</h3>
+        <button class="button" onclick="showFutures()">Фьючерс саудасы</button>
     </div>
 
     <!-- Видео страница -->
@@ -105,7 +108,12 @@
         <button class="exit-button" onclick="showMainPage()">Шығу</button>
         <iframe src="https://drive.google.com/file/d/1Xuy_DvAtywu3eB_bW5U1YssFNafleQXs/preview" frameborder="0" allowfullscreen></iframe>
     </div>
-    
+
+    <!-- Фьючерс Видео страница -->
+    <div class="futures-page" id="futuresPage">
+        <button class="exit-button" onclick="showMainPage()">Шығу</button>
+        <iframe src="https://drive.google.com/file/d/1LRhVb8PIpr9hFIOcm1-h1S-oukNCnFZ1/preview" frameborder="0" allowfullscreen></iframe>
+    </div>
     <script>
         // Функция для показа страницы с видео
         function showVideo() {
@@ -125,11 +133,18 @@
             document.getElementById('spotPage').style.display = 'flex';
         }
 
+        // Функция для показа страницы с Фьючерс видео
+        function showFutures() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('futuresPage').style.display = 'flex';
+        }
+
         // Функция для возврата на главную страницу
         function showMainPage() {
             document.getElementById('videoPage').style.display = 'none';
             document.getElementById('p2pPage').style.display = 'none';
             document.getElementById('spotPage').style.display = 'none';
+            document.getElementById('futuresPage').style.display = 'none';
             document.getElementById('mainPage').style.display = 'flex';
         }
     </script>
