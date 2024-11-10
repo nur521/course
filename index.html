@@ -7,18 +7,17 @@
     <style>
         /* Общие стили */
         body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #141414;
-    color: #ffffff;
-    height: auto;
-    overflow-y: auto; /* Включаем вертикальную прокрутку */
-}
-
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #ffffff;
+            height: auto;
+            overflow-y: auto; /* Включаем вертикальную прокрутку */
+        }
 
         /* Главная страница */
-        .main-page, .video-page, .p2p-page, .spot-page, .futures-page {
+        .main-page, .video-page, .p2p-page, .spot-page, .futures-page, .wallet-page {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -46,13 +45,13 @@
             background-color: #f40612;
         }
 
-        /* Видео страницы */
-        .video-page, .p2p-page, .spot-page, .futures-page {
+        /* Страницы с видео */
+        .video-page, .p2p-page, .spot-page, .futures-page, .wallet-page {
             position: relative;
             display: none;
         }
 
-        .video-page iframe, .p2p-page iframe, .spot-page iframe, .futures-page iframe {
+        .video-page iframe, .p2p-page iframe, .spot-page iframe, .futures-page iframe, .wallet-page iframe {
             width: 100vw;
             height: 100vh;
         }
@@ -77,10 +76,8 @@
     </style>
 </head>
 <body>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br>
+
     <!-- Главная страница -->
     <div class="main-page" id="mainPage">
         <h1>NurCrypto - криптовалюта курсы</h1>
@@ -95,62 +92,70 @@
         <hr color="white" width="100%">
         <h3>4) Фьючерс саудасы</h3>
         <button class="button" onclick="showFutures()">Фьючерс саудасы</button>
+        <hr color="white" width="100%">
+        <h3>5) Децентрализденген Кошелек</h3>
+        <button class="button" onclick="showWallet()">Децентрализденген Кошелек</button>
     </div>
 
-    <!-- Видео страница -->
+    <!-- Видео страницы -->
     <div class="video-page" id="videoPage">
         <button class="exit-button" onclick="showMainPage()">Шығу</button>
-        <iframe src="https://drive.google.com/file/d/18YHOlDM7BvHJahvkonSlCfh6UQ379sZf/preview" frameborder="0" allowfullscreen></iframe> 
+        <iframe src="https://drive.google.com/file/d/18YHOlDM7BvHJahvkonSlCfh6UQ379sZf/preview" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- P2P Видео страница -->
     <div class="p2p-page" id="p2pPage">
         <button class="exit-button" onclick="showMainPage()">Шығу</button>
         <iframe src="https://drive.google.com/file/d/1NCW-U13NIwTUzzikcZnBO-E3mL4KNwfS/preview" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- Спот Видео страница -->
     <div class="spot-page" id="spotPage">
         <button class="exit-button" onclick="showMainPage()">Шығу</button>
         <iframe src="https://drive.google.com/file/d/1Xuy_DvAtywu3eB_bW5U1YssFNafleQXs/preview" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- Фьючерс Видео страница -->
     <div class="futures-page" id="futuresPage">
         <button class="exit-button" onclick="showMainPage()">Шығу</button>
         <iframe src="https://drive.google.com/file/d/1LRhVb8PIpr9hFIOcm1-h1S-oukNCnFZ1/preview" frameborder="0" allowfullscreen></iframe>
     </div>
+
+    <!-- Страница Децентрализденген Кошелек -->
+    <div class="wallet-page" id="walletPage">
+        <button class="exit-button" onclick="showMainPage()">Шығу</button>
+        <iframe src="https://drive.google.com/file/d/1kJPDxMGK3NOBif2364dQhtQ7g-dVxWpJ/preview" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
     <script>
-        // Функция для показа страницы с видео
         function showVideo() {
             document.getElementById('mainPage').style.display = 'none';
             document.getElementById('videoPage').style.display = 'flex';
         }
 
-        // Функция для показа страницы с P2P видео
         function showP2P() {
             document.getElementById('mainPage').style.display = 'none';
             document.getElementById('p2pPage').style.display = 'flex';
         }
 
-        // Функция для показа страницы с Спот видео
         function showSpot() {
             document.getElementById('mainPage').style.display = 'none';
             document.getElementById('spotPage').style.display = 'flex';
         }
 
-        // Функция для показа страницы с Фьючерс видео
         function showFutures() {
             document.getElementById('mainPage').style.display = 'none';
             document.getElementById('futuresPage').style.display = 'flex';
         }
 
-        // Функция для возврата на главную страницу
+        function showWallet() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('walletPage').style.display = 'flex';
+        }
+
         function showMainPage() {
             document.getElementById('videoPage').style.display = 'none';
             document.getElementById('p2pPage').style.display = 'none';
             document.getElementById('spotPage').style.display = 'none';
             document.getElementById('futuresPage').style.display = 'none';
+            document.getElementById('walletPage').style.display = 'none';
             document.getElementById('mainPage').style.display = 'flex';
         }
     </script>
